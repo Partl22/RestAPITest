@@ -1,13 +1,14 @@
 const Express = require('express');
 const app = new Express();
+const server = require('http').createServer(app);
 const fs = require('fs');
 const path = require('path');
 
 const port = 8080;
 //const staticPrefix = "www/";
 
-app.get('/name', serveNameAsync);
-app.get('*', serveNotFoundSync);
+app.post('/name', serveNameAsync);
+app.post('*', serveNotFoundSync);
 
 app.listen(port, () => console.log("Server started at port " + port));
 
